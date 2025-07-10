@@ -12,6 +12,7 @@
             padding: 20px;
             background-color: #f5f5f5;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -20,10 +21,22 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        h1 { color: #2563eb; border-bottom: 3px solid #2563eb; padding-bottom: 10px; }
-        h2 { color: #1e40af; margin-top: 30px; }
-        h3 { color: #1d4ed8; }
-        
+
+        h1 {
+            color: #2563eb;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #1e40af;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #1d4ed8;
+        }
+
         .concept-box {
             background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
             padding: 20px;
@@ -31,14 +44,14 @@
             border-radius: 8px;
             border-left: 5px solid #0288d1;
         }
-        
+
         .constraint-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin: 20px 0;
         }
-        
+
         .constraint-card {
             background: #f8f9fa;
             padding: 20px;
@@ -46,19 +59,19 @@
             border: 2px solid #dee2e6;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        
-        .constraint-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
+
+            .constraint-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            }
+
         .constraint-title {
             color: #495057;
             font-weight: bold;
             margin-bottom: 10px;
             font-size: 1.1em;
         }
-        
+
         .code-block {
             background: #272822;
             color: #f8f8f2;
@@ -67,33 +80,41 @@
             overflow-x: auto;
             margin: 10px 0;
             font-family: 'Courier New', monospace;
+            white-space: pre;
         }
-        
+
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-        
-        .comparison-table th,
-        .comparison-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        .comparison-table th {
-            background-color: #f2f2f2;
+
+            .comparison-table th,
+            .comparison-table td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+            }
+
+            .comparison-table th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+            .comparison-table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+        .pro {
+            color: #28a745;
             font-weight: bold;
         }
-        
-        .comparison-table tr:nth-child(even) {
-            background-color: #f9f9f9;
+
+        .con {
+            color: #dc3545;
+            font-weight: bold;
         }
-        
-        .pro { color: #28a745; font-weight: bold; }
-        .con { color: #dc3545; font-weight: bold; }
-        
+
         .flow-diagram {
             display: flex;
             align-items: center;
@@ -102,7 +123,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        
+
         .flow-box {
             background: #e3f2fd;
             border: 2px solid #1976d2;
@@ -111,13 +132,13 @@
             text-align: center;
             min-width: 120px;
         }
-        
+
         .flow-arrow {
             font-size: 24px;
             color: #1976d2;
             font-weight: bold;
         }
-        
+
         .highlight {
             background-color: #fff3cd;
             border: 1px solid #ffeaa7;
@@ -125,7 +146,7 @@
             border-radius: 5px;
             margin: 10px 0;
         }
-        
+
         .example-section {
             background: #f8f9fa;
             padding: 20px;
@@ -137,57 +158,57 @@
 </head>
 <body>
     <div class="container">
-        <h1>?? C# Generics - Interactive Learning Guide</h1>
-        
+        <h1>🔧 C# Generics - Interactive Learning Guide</h1>
+
         <div class="concept-box">
-            <h2>?? What Are Generics?</h2>
-            <p>Generics allow you to write <strong>type-safe</strong>, <strong>reusable</strong> code that works with different data types while maintaining compile-time type checking.</p>
+            <h2>💡 What Are Generics?</h2>
+            <p>Generics allow you to write <strong>type-safe</strong> and <strong>reusable</strong> code that works with different data types while maintaining compile-time type checking.</p>
         </div>
 
-        <h2>?? Generic Constraint Types</h2>
+        <h2>🎯 Generic Constraint Types</h2>
         <div class="constraint-grid">
             <div class="constraint-card">
-                <div class="constraint-title">?? Interface Constraint</div>
+                <div class="constraint-title">🔌 Interface Constraint</div>
                 <div class="code-block">where T : IComparable</div>
                 <p><strong>Requirement:</strong> T must implement the specified interface</p>
                 <p><strong>Benefit:</strong> Can call interface methods safely</p>
                 <p><strong>Example:</strong> T.CompareTo() method available</p>
             </div>
-            
+
             <div class="constraint-card">
-                <div class="constraint-title">??? Class Constraint</div>
+                <div class="constraint-title">🏗️ Class Constraint</div>
                 <div class="code-block">where T : Product</div>
                 <p><strong>Requirement:</strong> T must be or inherit from specified class</p>
                 <p><strong>Benefit:</strong> Access to base class properties/methods</p>
                 <p><strong>Example:</strong> product.Price property available</p>
             </div>
-            
+
             <div class="constraint-card">
-                <div class="constraint-title">?? Value Type Constraint</div>
+                <div class="constraint-title">💎 Value Type Constraint</div>
                 <div class="code-block">where T : struct</div>
                 <p><strong>Requirement:</strong> T must be a value type</p>
                 <p><strong>Benefit:</strong> No null reference exceptions</p>
                 <p><strong>Example:</strong> int, bool, DateTime, custom structs</p>
             </div>
-            
+
             <div class="constraint-card">
-                <div class="constraint-title">??? Reference Type Constraint</div>
+                <div class="constraint-title">🔗 Reference Type Constraint</div>
                 <div class="code-block">where T : class</div>
                 <p><strong>Requirement:</strong> T must be a reference type</p>
                 <p><strong>Benefit:</strong> Can check for null, use reference semantics</p>
                 <p><strong>Example:</strong> string, object, custom classes</p>
             </div>
-            
+
             <div class="constraint-card">
-                <div class="constraint-title">?? Constructor Constraint</div>
+                <div class="constraint-title">⚡ Constructor Constraint</div>
                 <div class="code-block">where T : new()</div>
                 <p><strong>Requirement:</strong> T must have parameterless constructor</p>
                 <p><strong>Benefit:</strong> Can create instances with new T()</p>
                 <p><strong>Example:</strong> Factory patterns, object creation</p>
             </div>
-            
+
             <div class="constraint-card">
-                <div class="constraint-title">?? Multiple Constraints</div>
+                <div class="constraint-title">🔄 Multiple Constraints</div>
                 <div class="code-block">where T : IComparable, new()</div>
                 <p><strong>Requirement:</strong> T must satisfy ALL constraints</p>
                 <p><strong>Benefit:</strong> Combined functionality from all constraints</p>
@@ -195,35 +216,35 @@
             </div>
         </div>
 
-        <h2>?? Boxing and Unboxing in Your Nullable&lt;T&gt;</h2>
+        <h2>📦 Boxing and Unboxing in class Nullable&lt;T&gt;</h2>
         <div class="flow-diagram">
             <div class="flow-box">
                 <strong>Value Type</strong><br>
                 <code>int value = 42</code>
             </div>
-            <div class="flow-arrow">??</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-box">
                 <strong>Boxing</strong><br>
                 <code>object _value = value</code>
             </div>
-            <div class="flow-arrow">??</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-box">
                 <strong>Storage</strong><br>
                 <code>Heap Memory</code>
             </div>
-            <div class="flow-arrow">??</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-box">
                 <strong>Unboxing</strong><br>
                 <code>(T)_value</code>
             </div>
-            <div class="flow-arrow">??</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-box">
                 <strong>Value Type</strong><br>
                 <code>int result = 42</code>
             </div>
         </div>
 
-        <h2>?? Generic vs Non-Generic Comparison</h2>
+        <h2>⚖️ Generic vs Non-Generic Comparison</h2>
         <table class="comparison-table">
             <thead>
                 <tr>
@@ -235,93 +256,91 @@
             <tbody>
                 <tr>
                     <td><strong>Type Safety</strong></td>
-                    <td><span class="con">? Runtime type checking</span><br>Cast exceptions possible</td>
-                    <td><span class="pro">? Compile-time type checking</span><br>No cast exceptions</td>
+                    <td><span class="con">❌ Runtime type checking</span><br>Cast exceptions possible</td>
+                    <td><span class="pro">✅ Compile-time type checking</span><br>No cast exceptions</td>
                 </tr>
                 <tr>
                     <td><strong>Performance</strong></td>
-                    <td><span class="con">? Boxing/unboxing overhead</span><br>Reference type allocations</td>
-                    <td><span class="pro">? No boxing for value types</span><br>Optimized memory usage</td>
+                    <td><span class="con">❌ Boxing/unboxing overhead</span><br>Reference type allocations</td>
+                    <td><span class="pro">✅ No boxing for value types</span><br>Optimized memory usage</td>
                 </tr>
                 <tr>
                     <td><strong>Code Reusability</strong></td>
-                    <td><span class="con">? Separate class per type</span><br>Code duplication</td>
-                    <td><span class="pro">? Single class for all types</span><br>DRY principle</td>
+                    <td><span class="con">❌ Separate class per type</span><br>Code duplication</td>
+                    <td><span class="pro">✅ Single class for all types</span><br>DRY principle</td>
                 </tr>
                 <tr>
                     <td><strong>IntelliSense</strong></td>
-                    <td><span class="con">? Limited support</span><br>Object return types</td>
-                    <td><span class="pro">? Full type information</span><br>Rich IDE support</td>
+                    <td><span class="con">❌ Limited support</span><br>Object return types</td>
+                    <td><span class="pro">✅ Full type information</span><br>Rich IDE support</td>
                 </tr>
                 <tr>
                     <td><strong>Maintainability</strong></td>
-                    <td><span class="con">? Multiple classes to maintain</span><br>Inconsistent APIs</td>
-                    <td><span class="pro">? Single generic implementation</span><br>Consistent API</td>
+                    <td><span class="con">❌ Multiple classes to maintain</span><br>Inconsistent APIs</td>
+                    <td><span class="pro">✅ Single generic implementation</span><br>Consistent API</td>
                 </tr>
             </tbody>
         </table>
 
-        <h2>?? Real-World Usage Examples</h2>
-        
+        <h2>🌍 Real-World Usage Examples</h2>
+
         <div class="example-section">
-            <h3>?? Collection Evolution</h3>
+            <h3>📚 Collection Evolution</h3>
             <div class="code-block">
-// ? Old way - separate class for each type
-public class BookList { 
-    public void Add(Book book) { } 
-}
-public class IntList { 
-    public void Add(int number) { } 
-}
+                // ❌ Old way - separate class for each type
+                public class BookList {
+                    public void Add(Book book) { }
+                }
 
-// ? Generic way - one class for all types
-public class GenericList&lt;T&gt; { 
-    public void Add(T item) { } 
-}
+                public class IntList  {
+                    public void Add(int number) { }
+                }
 
-// Usage
-var books = new GenericList&lt;Book&gt;();
-var numbers = new GenericList&lt;int&gt;();
-var names = new GenericList&lt;string&gt;();
+                // ✅ Generic way - one class for all types
+                public class GenericList&lt;T&gt; {
+                    public void Add(T item) { }
+                }
+
+                // Usage
+                var books = new GenericList&lt;Book&gt;();
+                var numbers = new GenericList&lt;int&gt;();
+                var names = new GenericList&lt;string&gt;();
             </div>
         </div>
 
         <div class="example-section">
-            <h3>?? Constraint Benefits</h3>
+            <h3>🎯 Constraint Benefits</h3>
             <div class="code-block">
-// Interface constraint enables method calls
-public T Max&lt;T&gt;(T a, T b) where T : IComparable
-{
-    return a.CompareTo(b) &gt; 0 ? a : b;  // ? Safe to call CompareTo
-}
+                // Interface constraint enables method calls
+                public T Max&lt;T&gt;(T a, T b) where T : IComparable {
+                    return a.CompareTo(b) &gt; 0 ? a : b;  // ✅ Safe to call CompareTo
+                }
 
-// Class constraint enables property access
-public float CalculateDiscount&lt;T&gt;(T product) where T : Product
-{
-    return product.Price * 0.1f;  // ? Safe to access Price
-}
+                // Class constraint enables property access
+                public float CalculateDiscount&lt;T&gt;(T product) where T : Product {
+                    return product.Price * 0.1f;  // ✅ Safe to access Price
+                }
 
-// Constructor constraint enables object creation
-public void Initialize&lt;T&gt;() where T : new()
-{
-    var instance = new T();  // ? Safe to create new instance
-}
+                // Constructor constraint enables object creation
+                public void Initialize&lt;T&gt;() where T : new() {
+                    var instance = new T();  // ✅ Safe to create new instance
+                }
             </div>
         </div>
 
-        <h2>?? Key Learning Points</h2>
+        <h2>🔑 Key Learning Points</h2>
         <div class="highlight">
-            <h3>?? Remember These Concepts:</h3>
+            <h3>💭 Remember These Concepts:</h3>
             <ul>
                 <li><strong>Type Safety:</strong> Generics catch type errors at compile-time, not runtime</li>
                 <li><strong>Performance:</strong> No boxing/unboxing for value types when using generics</li>
                 <li><strong>Constraints Enable Functionality:</strong> Only add constraints for methods/properties you actually need</li>
                 <li><strong>default(T) is Your Friend:</strong> Safe way to get default values for any type</li>
-                <li><strong>Constraint Order Matters:</strong> Base class ? Interfaces ? struct/class ? new()</li>
+                <li><strong>Constraint Order Matters:</strong> Base class → Interfaces → struct/class → new()</li>
             </ul>
         </div>
 
-        <h2>?? Next Steps</h2>
+        <h2>🚀 Next Steps</h2>
         <div class="concept-box">
             <h3>Advanced Topics to Explore:</h3>
             <ul>
@@ -334,8 +353,10 @@ public void Initialize&lt;T&gt;() where T : new()
         </div>
 
         <div class="highlight">
-            <p><strong>?? Practice Tip:</strong> Try creating your own generic classes with different constraints. 
-            Start simple and gradually add more complex constraints as you become comfortable with the concepts!</p>
+            <p>
+                <strong>💡 Practice Tip:</strong> Try creating your own generic classes with different constraints.
+                Start simple and gradually add more complex constraints as you become comfortable with the concepts!
+            </p>
         </div>
     </div>
 </body>
