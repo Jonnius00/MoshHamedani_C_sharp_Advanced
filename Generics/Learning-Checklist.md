@@ -1,13 +1,13 @@
 # C# Generics - Learning Checklist
 
-## ?? Study Resources Created
+## ?? Study Resources content
 - [x] README.md - Comprehensive text guide
 - [x] Generics-Visual-Guide.html - Interactive visual guide
 - [x] Enhanced code files with detailed comments
 - [x] Program.cs with practical demonstrations
 
 ## ?? Recommended Study Order
-1. Read README.md for comprehensive overview
+1. Read README.md for comprehensive overview and concept reinforcement
 2. Open Generics-Visual-Guide.html in browser for visual learning
 3. Study enhanced code files in this order:
    - Product.cs & Book.cs (inheritance foundation)
@@ -17,7 +17,7 @@
    - DiscountCalculator.cs (practical constraint usage)
    - Utilities.cs (multiple constraints)
    - Program.cs (everything in action)
-4. Run the program and trace through execution
+4. Run the program ( press F5 ) and trace through execution
 5. Complete hands-on exercises
 6. Check off mastery concepts
 
@@ -134,4 +134,3 @@
 - [ ] Can choose between generic and non-generic approaches
 - [ ] Can design reusable generic components
 
-**Good luck with your C# Generics journey! ??**
