@@ -50,7 +50,7 @@ With generics, the developer get compile-time type safety:
 // Generic approach (from BookList.cs)
 public class GenericList<T>
 {
-    public void Add(T value) { } // Works with any type T
+    public void Add(T value) { }      // Works with any type T
     public T this[int index] { get; } // Returns type T
 }
 ```
@@ -96,9 +96,9 @@ static T Max<T>(T a, T b) where T : IComparable
 
 **Usage:**
 ```csharp
-int maxInt = Max(5, 10);        // Works - int implements IComparable
-string maxStr = Max("a", "b");  // Works - string implements IComparable
-// Max(new object(), new object()); // Won't compile - object doesn't implement IComparable
+int maxInt = Max(5, 10);            // Works - int implements IComparable
+string maxStr = Max("a", "b");      // Works - string implements IComparable
+Max(new object(), new object());    // Won't compile - object doesn't implement IComparable
 ```
 
 ### 2. Class Constraint (`where T : BaseClass`)
@@ -125,7 +125,7 @@ Book book = new Book { Price = 25, Isbn = "123" };
 
 float discount1 = CalculateDiscount(product); // Works
 float discount2 = CalculateDiscount(book);    // Works - Book inherits from Product
-// CalculateDiscount("string");               // Won't compile
+CalculateDiscount("string");                  // Won't compile
 ```
 
 ### 3. Value Type Constraint (`where T : struct`)
@@ -157,19 +157,22 @@ public class Nullable<T> where T : struct
 
 **Usage:**
 ```csharp
-var nullableInt = new Nullable<int>(42);     // Works
-var nullableBool = new Nullable<bool>(true); // Works
-// var nullableString = new Nullable<string>("test"); // Won't compile
+var nullableInt = new Nullable<int>(42);           // Works
+var nullableBool = new Nullable<bool>(true);       // Works
+var nullableString = new Nullable<string>("test"); // Won't compile
 ```
 
 ### 4. Reference Type Constraint (`where T : class`)
 
 ```csharp
+// BRING ANOTHER EXAMPLE FROM THE PROJECT
+// Repository<T> doesnt exist
 public class Repository<T> where T : class
 {
     public void Save(T entity)
     {
-        if (entity == null) // Can check for null since T is reference type
+        if (entity == null) 
+        // can check for null since T is reference type
             throw new ArgumentNullException();
     }
 }
@@ -181,7 +184,7 @@ public class Repository<T> where T : class
 ```csharp
 static void DoSomething<T>(T value) where T : new()
 {
-    var obj = new T(); // Can create new instance of T
+    var obj = new T(); // can create new instance of T
 }
 ```
 
@@ -197,12 +200,12 @@ public class Utilities<T> where T : IComparable, new()
 {
     public T Max(T a, T b)
     {
-        return a.CompareTo(b) > 0 ? a : b; // Uses IComparable
+        return a.CompareTo(b) > 0 ? a : b; // uses IComparable
     }
     
     public void DoSomething(T value)
     {
-        var obj = new T(); // Uses new() constraint
+        var obj = new T();          // uses new() constraint
     }
 }
 ```
@@ -217,7 +220,7 @@ The project shows the evolution from specific to generic collections:
 ```csharp
 public class BookList
 {
-    public void Add(Book book) { } // Only works with Book
+    public void Add(Book book) { }       // Only works with Book
     public Book this[int index] { get; } // Only returns Book
 }
 ```
@@ -231,7 +234,7 @@ public class BookList
 ```csharp
 public class GenericList<T>
 {
-    public void Add(T value) { } // Works with any type
+    public void Add(T value) { }      // Works with any type
     public T this[int index] { get; } // Returns the same type
 }
 
@@ -264,13 +267,13 @@ the project includes a custom `Nullable<T>` implementation that demonstrates sev
 ```csharp
 public class Nullable<T> where T : struct
 {
-    private object _value; // Stores the value as object
+    private object _value;  // Stores the value as object
     
-    public Nullable() { } // Default constructor - value is null
+    public Nullable() { }   // Default constructor - value is null
     
     public Nullable(T value)
     {
-        _value = value; // Boxing occurs here (value type ? object)
+        _value = value;     // Boxing occurs here (value type ? object)
     }
     
     public bool HasValue
@@ -283,7 +286,7 @@ public class Nullable<T> where T : struct
         if (HasValue)
             return (T)_value; // Unboxing occurs here (object ? value type)
         
-        return default(T); // Returns default value for type T
+        return default(T);    // Returns default value for type T
     }
 }
 ```

@@ -3,7 +3,7 @@ using System;
 namespace Generics
 {
     /// <summary>
-    /// Generic utility class demonstrating multiple constraints.
+    /// Generic utility class demonstrating MULTIPLE CONSTRAINTS.
     /// This class shows how to combine different constraints on a single type parameter.
     /// 
     /// Constraints Applied:
@@ -14,20 +14,22 @@ namespace Generics
     /// 1. Compare instances of T (using IComparable.CompareTo)
     /// 2. Create new instances of T (using new T())
     /// 
-    /// Multiple constraints are separated by commas and all must be satisfied.
+    /// Multiple constraints are separated by commas and ALL must be satisfied.
     /// </summary>
-    /// <typeparam name="T">Type that must implement IComparable and have a parameterless constructor</typeparam>
+    /// 
+    /// <typeparam name="T">Type must implement IComparable and have a parameterless constructor</typeparam>
+    /// 
     /// <example>
     /// Valid usage examples:
-    /// var intUtilities = new Utilities&lt;int&gt;();        // int implements IComparable and has default constructor
-    /// var stringUtilities = new Utilities&lt;string&gt;();  // string implements IComparable and has parameterless constructor
-    /// var dateUtilities = new Utilities&lt;DateTime&gt;(); // DateTime implements IComparable and has default constructor
+    /// var intUtilities = new Utilities<int>();        // int implements IComparable and has default constructor
+    /// var stringUtilities = new Utilities<string>();  // string implements IComparable and has parameterless constructor
+    /// var dateUtilities = new Utilities<DateTime>();  // DateTime implements IComparable and has default constructor
     /// 
     /// Invalid usage (won't compile):
-    /// // var objectUtilities = new Utilities&lt;object&gt;(); // object doesn't implement IComparable
+    /// var objectUtilities = new Utilities<object>(); // object doesn't implement IComparable
     /// 
     /// Usage of methods:
-    /// var intUtils = new Utilities&lt;int&gt;();
+    /// var intUtils = new Utilities<int>();
     /// int max = intUtils.Max(5, 10);                 // Returns 10
     /// intUtils.DoSomething(42);                      // Creates new int instance
     /// </example>
@@ -47,16 +49,17 @@ namespace Generics
         }
 
         /// <summary>
-        /// Demonstrates the constructor constraint (new()).
-        /// The new() constraint allows us to create instances of type T,
-        /// which is useful for factory patterns, initialization, and object creation scenarios.
+        /// Demonstrates the constructor constraint aka new()
+        /// The new() constraint allows to create instances of type T,
         /// </summary>
+        /// 
         /// <param name="value">A parameter of type T (demonstrates type usage)</param>
+        /// 
         /// <example>
-        /// var utils = new Utilities&lt;DateTime&gt;();
+        /// var utils = new Utilities<DateTime>();
         /// utils.DoSomething(DateTime.Now);  // Creates a new DateTime instance internally
         /// 
-        /// var stringUtils = new Utilities&lt;string&gt;();
+        /// var stringUtils = new Utilities<string>();
         /// stringUtils.DoSomething("hello"); // Creates a new string instance internally
         /// </example>
         public void DoSomething(T value)
@@ -84,13 +87,13 @@ namespace Generics
         /// <param name="b">Second value of type T to compare</param>
         /// <returns>The larger of the two values based on their CompareTo implementation</returns>
         /// <example>
-        /// var utils = new Utilities&lt;int&gt;();
+        /// var utils = new Utilities<int>();
         /// int maxInt = utils.Max(5, 10);              // Returns 10
         /// 
-        /// var stringUtils = new Utilities&lt;string&gt;();
+        /// var stringUtils = new Utilities<string>();
         /// string maxString = stringUtils.Max("apple", "banana"); // Returns "banana" (alphabetically later)
         /// 
-        /// var dateUtils = new Utilities&lt;DateTime&gt;();
+        /// var dateUtils = new Utilities<DateTime>();
         /// DateTime maxDate = dateUtils.Max(DateTime.Today, DateTime.Now); // Returns the later date
         /// 
         /// How CompareTo works:

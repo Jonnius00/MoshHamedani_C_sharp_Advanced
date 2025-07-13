@@ -30,7 +30,7 @@ namespace Generics
         }
 
         /// <summary>
-        /// Demonstrates the custom Nullable&lt;T&gt; implementation.
+        /// Demonstrates the custom Nullable<T> implementation.
         /// Shows boxing/unboxing, value type constraints, and default values.
         /// </summary>
         static void DemonstrateNullable()

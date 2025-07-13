@@ -14,21 +14,23 @@ namespace Generics
     ///    - "Unboxed" when cast back to the value type
     ///    - Allows null representation for value types
     /// 
-    /// 3. Generic Type Safety:
+    /// 3. Generic Type Safetymo:
     ///    - Compile-time guarantee that only compatible types are used
     ///    - No runtime type checking needed
     /// 
-    /// This is similar to System.Nullable&lt;T&gt; but serves as an educational example.
+    /// This is similar to System.Nullable<T> but serves as an educational example.
     /// </summary>
+    /// 
     /// <typeparam name="T">Must be a value type (struct constraint)</typeparam>
+    /// 
     /// <example>
     /// Usage examples:
     /// 
     /// // Creating nullable values
-    /// var nullableInt = new Nullable&lt;int&gt;();        // No value (null state)
-    /// var valueInt = new Nullable&lt;int&gt;(42);        // Has value: 42
-    /// var nullableBool = new Nullable&lt;bool&gt;(true); // Has value: true
-    /// var nullableDate = new Nullable&lt;DateTime&gt;(); // No value (null state)
+    /// var nullableInt = new Nullable<int>();       // No value (null state)
+    /// var valueInt = new Nullable<int>(42);        // Has value: 42
+    /// var nullableBool = new Nullable<bool>(true); // Has value: true
+    /// var nullableDate = new Nullable<DateTime>(); // No value (null state)
     /// 
     /// // Checking for values
     /// if (valueInt.HasValue)
@@ -39,7 +41,7 @@ namespace Generics
     /// int defaultValue = nullableInt.GetValueOrDefault(); // Returns 0 (default for int)
     /// 
     /// // This won't compile due to struct constraint:
-    /// // var nullableString = new Nullable&lt;string&gt;("test"); // Error: string is reference type
+    /// // var nullableString = new Nullable<string>("test"); // Error: string is reference type
     /// </example>
     public class Nullable<T> where T : struct
     {
@@ -59,7 +61,7 @@ namespace Generics
         /// _value remains null, indicating no value is present.
         /// </summary>
         /// <example>
-        /// var empty = new Nullable&lt;int&gt;();
+        /// var empty = new Nullable<int>();
         /// Console.WriteLine(empty.HasValue);           // Output: False
         /// Console.WriteLine(empty.GetValueOrDefault()); // Output: 0
         /// </example>
@@ -75,13 +77,13 @@ namespace Generics
         /// </summary>
         /// <param name="value">The value to store</param>
         /// <example>
-        /// var withValue = new Nullable&lt;int&gt;(100);
+        /// var withValue = new Nullable<int>(100);
         /// Console.WriteLine(withValue.HasValue);           // Output: True
         /// Console.WriteLine(withValue.GetValueOrDefault()); // Output: 100
         /// </example>
         public Nullable(T value)
         {
-            // Boxing occurs here: value type T is converted to object
+            // Boxing occurs here: VALUE type T is converted to OBJECT
             // For example: int 42 becomes a boxed object containing 42
             _value = value;
         }
@@ -95,8 +97,8 @@ namespace Generics
         /// </summary>
         /// <returns>true if a value is present; false if no value (null state)</returns>
         /// <example>
-        /// var empty = new Nullable&lt;int&gt;();
-        /// var withValue = new Nullable&lt;int&gt;(42);
+        /// var empty = new Nullable<int>();
+        /// var withValue = new Nullable<int>(42);
         /// 
         /// Console.WriteLine(empty.HasValue);     // Output: False
         /// Console.WriteLine(withValue.HasValue); // Output: True
@@ -120,10 +122,10 @@ namespace Generics
         /// </summary>
         /// <returns>The stored value if HasValue is true; otherwise default(T)</returns>
         /// <example>
-        /// var empty = new Nullable&lt;int&gt;();
-        /// var withValue = new Nullable&lt;int&gt;(42);
-        /// var emptyBool = new Nullable&lt;bool&gt;();
-        /// var withBool = new Nullable&lt;bool&gt;(true);
+        /// var empty = new Nullable<int>();
+        /// var withValue = new Nullable<int>(42);
+        /// var emptyBool = new Nullable<bool>();
+        /// var withBool = new Nullable<bool>(true);
         /// 
         /// Console.WriteLine(empty.GetValueOrDefault());     // Output: 0 (default for int)
         /// Console.WriteLine(withValue.GetValueOrDefault()); // Output: 42
@@ -133,12 +135,12 @@ namespace Generics
         public T GetValueOrDefault()
         {
             if (HasValue)
-                // Unboxing occurs here: object is cast back to value type T
-                // This is safe because we know _value contains a boxed T
+            // Unboxing occurs here: object is cast back to value type T
+            // This is safe because we know _value contains a boxed T
                 return (T)_value;
 
-            // default(T) is a generic way to get the "zero" value for type T
-            // This works for any value type and returns appropriate defaults
+            // default(T) is a generic way to get the "zero" value for T
+            // It works for any value type and returns appropriate defaults
             return default(T);
         }
     }

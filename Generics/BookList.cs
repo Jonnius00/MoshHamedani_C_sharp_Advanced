@@ -2,14 +2,12 @@ using System;
 
 namespace Generics
 {
-    /// <summary>
-    /// Non-generic collection that only works with Book objects.
-    /// This demonstrates the limitations of non-generic collections:
-    /// - Type-specific: only works with Book
-    /// - Code duplication: need separate class for each type
-    /// - Limited reusability
-    /// Compare this with GenericList&lt;T&gt; below to see the benefits of generics.
-    /// </summary>
+     /* Non-generic collection that ONLY works with Book objects.
+     This demonstrates the limitations of non-generic collections:
+     - Type-specific: only works with Book
+     - Code duplication: need separate class for each type
+     - Limited reusability
+     Compare this with GenericList<T> below to see the benefits of generics. */
     public class BookList
     {
         /// <summary>
@@ -44,9 +42,9 @@ namespace Generics
     /// <typeparam name="TValue">The type of values in the dictionary</typeparam>
     /// <example>
     /// Usage examples:
-    /// var stringToInt = new GenericDictionary&lt;string, int&gt;();      // Maps string to int
-    /// var intToBook = new GenericDictionary&lt;int, Book&gt;();          // Maps int to Book
-    /// var bookToPrice = new GenericDictionary&lt;Book, decimal&gt;();   // Maps Book to decimal
+    /// var stringToInt = new GenericDictionary<string, int>();  // Maps string to int
+    /// var intToBook = new GenericDictionary<int, Book>();      // Maps int to Book
+    /// var bookToPrice = new GenericDictionary<Book, decimal>();// Maps Book to decimal
     /// </example>
     public class GenericDictionary<TKey, TValue>
     {
@@ -73,21 +71,22 @@ namespace Generics
     /// 
     /// Compare this with BookList above:
     /// - BookList: only works with Book objects
-    /// - GenericList&lt;T&gt;: works with any type you specify
+    /// - GenericList<T>: works with any type you specify
     /// </summary>
-    /// <typeparam name="T">The type of elements in the list</typeparam>
+    /// 
+    /// <typeparam name="T">The type of elements in the list </typeparam>
+    /// 
     /// <example>
-    /// Usage examples:
-    /// var books = new GenericList&lt;Book&gt;();      // List of books
-    /// var numbers = new GenericList&lt;int&gt;();     // List of integers  
-    /// var names = new GenericList&lt;string&gt;();   // List of strings
-    /// var products = new GenericList&lt;Product&gt;(); // List of products
+    /// var books = new GenericList<Book>();       // List of books
+    /// var numbers = new GenericList<int>();      // List of integers  
+    /// var names = new GenericList<string>();     // List of strings
+    /// var products = new GenericList<Product>(); // List of products
     /// 
     /// // Type safety in action:
-    /// books.Add(new Book());        // ? Correct: Book expected
-    /// books.Add("not a book");      // ? Compile error: string not allowed
-    /// numbers.Add(42);              // ? Correct: int expected
-    /// numbers.Add(3.14);            // ? Compile error: double not allowed in int list
+    /// books.Add(new Book());     // ? Correct: Book expected
+    /// books.Add("not a book");   // ? Compile error: string not allowed
+    /// numbers.Add(42);           // ? Correct: int expected
+    /// numbers.Add(3.14);         // ? Compile error: double not allowed in int list
     /// </example>
     public class GenericList<T>
     {
@@ -107,16 +106,18 @@ namespace Generics
         /// Notice how the return type is T, not object - this provides type safety.
         /// No casting required when retrieving items!
         /// </summary>
+        /// 
         /// <param name="index">The zero-based index</param>
-        /// <returns>The item of type T at the specified index</returns>
+        /// <returns> The item of type T at the specified index </returns>
+        /// 
         /// <example>
-        /// var books = new GenericList&lt;Book&gt;();
+        /// var books = new GenericList<Book>();
         /// books.Add(new Book { Title = "C# Programming" });
         /// Book book = books[0];  // No casting needed! Type is known to be Book
         /// 
         /// // Compare with non-generic approach:
         /// // object obj = nonGenericList[0];
-        /// // Book book = (Book)obj;  // Casting required, runtime error possible
+        /// // Book book = (Book)obj;  // Casting REQUIRED, runtime error possible
         /// </example>
         public T this[int index]
         {

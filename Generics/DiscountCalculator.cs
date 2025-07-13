@@ -1,18 +1,18 @@
 namespace Generics
 {
     /// <summary>
-    /// Generic discount calculator demonstrating class constraint usage.
-    /// This class shows a practical example of how generic constraints enable
+    /// Generic discount calculator demonstrating CLASS CONSTRAINT usage.
+    /// A practical example of how generic constraints enable
     /// type-safe operations on constrained types.
     /// 
-    /// Key Concepts Demonstrated:
+    /// Key Concepts:
     /// 1. Class Constraint: where TProduct : Product
-    ///    - Ensures TProduct is Product or inherits from Product
-    ///    - Allows access to Product properties (Title, Price)
+    ///    - Ensures TProduct IS type Product or INHERITS from Product
+    ///    - Allows access to class Product properties (Title, Price)
     ///    - Maintains type safety while enabling polymorphism
     /// 
     /// 2. Real-world Application:
-    ///    - Can work with Product and all its derived types (Book, etc.)
+    ///    - Can work with Product and all its derived types (Book, ...)
     ///    - Type-safe: compiler prevents non-Product types
     ///    - Reusable: single class works for entire Product hierarchy
     /// 
@@ -20,13 +20,14 @@ namespace Generics
     ///    - Can be instantiated for specific product types
     ///    - Maintains strong typing throughout the calculation
     /// </summary>
+    /// 
     /// <typeparam name="TProduct">Product type that must inherit from Product</typeparam>
+    /// 
     /// <example>
-    /// Usage examples:
     /// 
     /// // Generic - works with any Product-derived type
-    /// var productCalc = new DiscountCalculator&lt;Product&gt;();
-    /// var bookCalc = new DiscountCalculator&lt;Book&gt;();
+    /// var productCalc = new DiscountCalculator<Product>();
+    /// var bookCalc = new DiscountCalculator<Book>();
     /// 
     /// // Type safety in action
     /// var product = new Product { Title = "Widget", Price = 100.0f };
@@ -36,7 +37,7 @@ namespace Generics
     /// float bookDiscount = bookCalc.CalculateDiscount(book);           // Returns 50.0f
     /// 
     /// // This won't compile due to constraint:
-    /// // var stringCalc = new DiscountCalculator&lt;string&gt;(); // Error: string doesn't inherit from Product
+    /// // var stringCalc = new DiscountCalculator<string>(); // Error: string doesn't inherit from Product
     /// </example>
     public class DiscountCalculator<TProduct> where TProduct : Product
     {
@@ -54,7 +55,7 @@ namespace Generics
         /// <param name="product">Product instance to calculate discount for</param>
         /// <returns>The product's price (placeholder for actual discount calculation)</returns>
         /// <example>
-        /// var calculator = new DiscountCalculator&lt;Book&gt;();
+        /// var calculator = new DiscountCalculator<Book>();
         /// var book = new Book 
         /// { 
         ///     Title = "Learning C#", 
@@ -67,7 +68,7 @@ namespace Generics
         /// // Output: Discount for Learning C#: $29.99
         /// 
         /// // The beauty of generics: same method works for any Product-derived type
-        /// var productCalc = new DiscountCalculator&lt;Product&gt;();
+        /// var productCalc = new DiscountCalculator<Product>();
         /// var widget = new Product { Title = "Widget", Price = 15.50f };
         /// float widgetDiscount = productCalc.CalculateDiscount(widget); // Returns 15.50f
         /// </example>
